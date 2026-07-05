@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ismail Systems — AI phone agents for North Shore trades, run by one accountable operator</title>
+<meta name="description" content="After-hours AI phone agents for HVAC, plumbing, and electrical shops around Evanston and Chicago's North Shore. Built and personally watched by Sam Ismail. Never misses a call; reports every Monday.">
+<meta property="og:title" content="Ismail Systems — your after-hours calls, answered and watched">
+<meta property="og:description" content="AI answers as your company. I watch every call. Monday reports include what went wrong and the fix.">
+<meta property="og:url" content="https://ismailsystems.com/">
+<!-- G-OG: uncomment when /assets/og.jpg exists (1200x630 — photo left, wordmark + one-liner right; spec in DEPLOY.md)
+<meta property="og:image" content="https://ismailsystems.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+-->
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService",
+ "name":"Ismail Systems LLC","url":"https://ismailsystems.com",
+ "telephone":"+18479062560","email":"sam@ismailsystems.com",
+ "description":"AI phone agents that answer after-hours calls for HVAC, plumbing, and electrical companies on Chicago's North Shore — built, integrated with dispatch software, and personally monitored by Sam Ismail, with weekly reporting.",
+ "areaServed":["Evanston IL","Wilmette IL","Skokie IL","Winnetka IL","Glenview IL","Morton Grove IL","Niles IL","Park Ridge IL"],
+ "founder":{"@type":"Person","name":"Sameer Ismail","alternateName":"Sam Ismail"}}
+</script>
+<style>
+:root{
+  --ink:#1a1a1a;          /* text */
+  --paper:#faf9f7;        /* ground */
+  --amber:#b45309;        /* worksite amber — links, the one accent */
+  --rule:#d9d5cd;         /* hairlines */
+  --measure:65ch;
+}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#e8e6e3;--paper:#161513;--rule:#3a3833;--amber:#d97a2b}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);background:var(--paper);
+  max-width:var(--measure);margin:0 auto;padding:2.5rem 1.25rem 4rem;
+}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;letter-spacing:-0.015em;margin:.5rem 0 .25rem}
+h2{font-size:1.2rem;line-height:1.3;margin:0 0 .75rem}
+.sub{font-size:1.05rem;margin:0 0 .5rem}
+section,footer{border-top:1px solid var(--rule);margin-top:2.5rem;padding-top:2rem}
+p{margin:0 0 1rem}
+a{color:var(--amber);text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+strong{font-weight:650}
+.tel{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.95em;white-space:nowrap}
+figure{margin:1.5rem 0}
+figcaption{font-size:.85rem;opacity:.75;margin-top:.5rem}
+/* The exhibit: the Monday report as a document, in the trades' paperwork vernacular */
+.report{
+  border:1px solid var(--ink);padding:1.1rem 1.2rem;background:transparent;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.55;
+  overflow-x:auto;
+}
+.report header{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--ink);padding-bottom:.5rem;margin-bottom:.6rem;font-weight:700}
+.report .stamp{color:var(--amber);font-weight:700;letter-spacing:.08em}
+.report table{width:100%;border-collapse:collapse}
+.report td{padding:.18rem 0;vertical-align:top}
+.report td:last-child{text-align:right;font-weight:650;white-space:nowrap}
+.report .wrong{border-top:1px dashed var(--rule);margin-top:.6rem;padding-top:.6rem}
+.report .wrong b{color:var(--amber)}
+dl{margin:0}
+dt{font-weight:650;margin-top:1.1rem}
+dd{margin:0.25rem 0 0}
+footer{font-size:.9rem}
+header.masthead p{margin:0}
+img.face{width:132px;height:132px;object-fit:cover;border:1px solid var(--ink);float:right;margin:0 0 .75rem 1rem}
+@media (max-width:480px){img.face{width:96px;height:96px}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <!-- G-PHOTO: replace src when the daylight photo exists (WebP <=120KB, width/height attrs). Until then this img is absent, not broken. -->
+  <!-- <img class="face" src="/assets/sam.webp" width="132" height="132" alt="Sam Ismail"> -->
+  <h1>I build and run the AI that answers your after&#8209;hours calls.</h1>
+  <p class="sub"><strong>For HVAC, plumbing, and electrical shops on Chicago&rsquo;s North Shore.</strong></p>
+</header>
+
+<section id="what" aria-labelledby="what-h">
+  <h2 id="what-h">The problem, plainly</h2>
+  <p>Your shop misses calls every week &mdash; after close, during a rush, on the Fourth of July. Industry data says roughly one in four inbound calls to home-services companies goes unanswered. Each one is a job dialing the next name on Google.</p>
+  <p>I build a phone agent that answers as <strong>your</strong> company: it sorts a real emergency from a tune-up, captures the name, address, and callback, books the job into your board (Housecall Pro, Jobber, ServiceTitan), texts the customer a confirmation &mdash; and pages your on-call tech in under a minute when it&rsquo;s a 2am no-heat with kids in the house.</p>
+  <p><strong>Then I watch it.</strong> That&rsquo;s the part you can&rsquo;t buy off a shelf.</p>
+</section>
+
+<section id="me" aria-labelledby="me-h">
+  <h2 id="me-h">It&rsquo;s just me. That&rsquo;s the point.</h2>
+  <p>My name is Sam Ismail. By day I&rsquo;m an engineering manager at a public healthcare technology company, where I build and run AI agents that process about twenty thousand operations a day &mdash; work where a dropped item means a patient&rsquo;s test falls through the cracks. This business is a smaller version of my day job, built for shops like yours, and I operate it personally: I read the transcripts, I catch the failures, I answer for the result.</p>
+  <p>You&rsquo;ve probably been pitched &ldquo;AI&rdquo; by companies with big teams and bigger promises. I&rsquo;m the opposite bet: one accountable person, a handful of shops at a time, and a report every Monday that includes anything my own system got wrong &mdash; with the fix.</p>
+</section>
+
+<section id="never" aria-labelledby="never-h">
+  <h2 id="never-h">What it will never do</h2>
+  <p>It will never make up a price &mdash; it only quotes lines you&rsquo;ve approved. It never pretends to be human; ask it, it tells the truth. It never takes card numbers. It never argues with an angry customer. It never touches your daytime line unless you ask. And when someone mentions a gas smell, it doesn&rsquo;t book an appointment &mdash; it tells them to get out and call 911, and pages your tech.</p>
+  <p>The fences are the product. Ask anyone who&rsquo;s turned an AI tool off.</p>
+</section>
+
+<section id="monday" aria-labelledby="monday-h">
+  <h2 id="monday-h">What you see every Monday</h2>
+  <figure>
+    <div class="report" role="img" aria-label="Sample weekly report: calls answered, jobs booked, dollars attached, guarantee count, and what went wrong with the fix">
+      <header><span>ISMAIL SYSTEMS &mdash; WEEKLY REPORT</span><span class="stamp">SAMPLE FORMAT</span></header>
+      <table>
+        <tr><td>Client</td><td>North Shore Heating &amp; Cooling (fictional)</td></tr>
+        <tr><td>Week</td><td>Day 32&ndash;38 of 60-day pilot</td></tr>
+        <tr><td>Calls answered</td><td>41</td></tr>
+        <tr><td>Jobs booked from recovered calls</td><td>9</td></tr>
+        <tr><td>Invoice dollars attached to date</td><td>$6,340</td></tr>
+        <tr><td>Guarantee ledger</td><td>17 booked of 10 required</td></tr>
+      </table>
+      <div class="wrong">
+        <b>WHAT WENT WRONG THIS WEEK (1)</b><br>
+        Tue 2:14am &mdash; caller pressed for a full system price; agent correctly refused to invent one but repeated the diagnostic offer twice (clumsy). Fix deployed Wed; a test for this exact exchange now runs before every update.
+      </div>
+    </div>
+    <figcaption>Sample format &mdash; including the section vendors don&rsquo;t publish. Yours would carry your numbers.</figcaption>
+  </figure>
+</section>
+
+<section id="deal" aria-labelledby="deal-h">
+  <h2 id="deal-h">The deal</h2>
+  <p><strong>$2,500</strong> to build it on your price book, your service area, and your board. <strong>$1,500/month</strong> for me to run it, watch every call, and report every Monday. Sixty-day pilot, after-hours and overflow only.</p>
+  <p><strong>If it doesn&rsquo;t book you at least ten jobs from calls you&rsquo;re currently missing in sixty days, the $2,500 comes back.</strong> I can offer that because this business isn&rsquo;t my rent money &mdash; my day job funds it, which means the guarantee is real and the incentive to keep an unhappy shop&rsquo;s check doesn&rsquo;t exist.</p>
+</section>
+
+<!-- G3: unhide at M4 when the demo line exists; replace DEMO_NUMBER in both places. -->
+<section id="hear" aria-labelledby="hear-h" hidden>
+  <h2 id="hear-h">Hear one work</h2>
+  <p><strong>Call <a class="tel" href="tel:+1DEMO_NUMBER">DEMO_NUMBER</a>.</strong> It answers as <em>North Shore Heating &amp; Cooling</em> &mdash; a fictional shop I built to be tested. Tell it your furnace died. Ask it what a new one costs (it won&rsquo;t guess). Ask if it&rsquo;s a robot (it won&rsquo;t lie). Yours would know your prices, your towns, your on-call rotation.</p>
+</section>
+
+<section id="faq" aria-labelledby="faq-h">
+  <h2 id="faq-h">Straight answers</h2>
+  <dl>
+    <dt>Is this your full-time job?</dt>
+    <dd>No &mdash; deliberately. See &ldquo;the deal&rdquo; above for why that makes the guarantee stronger, not weaker. I take on shops one at a time.</dd>
+    <dt>What happens when it screws up?</dt>
+    <dd>It will, occasionally &mdash; anything that answers phones does. The difference is that I find it before you do: every call is audited nightly, failures go in your Monday report with the fix, and anything serious gets a phone call from me the same day.</dd>
+    <dt>We tried an AI thing and shut it off.</dt>
+    <dd>Then you&rsquo;re exactly who this is for. Tell me what it got wrong &mdash; that&rsquo;s the first thing I&rsquo;ll engineer a test for. A tool nobody watches does what yours did. You tried a tool. I&rsquo;m the operator.</dd>
+    <dt>What if we part ways?</dt>
+    <dd>Everything&rsquo;s portable and documented &mdash; your number, your call history, the configuration. Month-to-month after the pilot. A service you can&rsquo;t leave is a service you can&rsquo;t trust.</dd>
+    <dt>Is a $79/month answering bot enough for us?</dt>
+    <dd>If you&rsquo;re a one-truck shop with light call volume &mdash; honestly, maybe. Call me and I&rsquo;ll tell you straight; talking a shop out of hiring me costs me less than a bad fit does.</dd>
+  </dl>
+</section>
+
+<footer>
+  <p>Sam Ismail &middot; Ismail Systems &middot; Evanston, Illinois<!-- G1: after filing, replace preceding with: Sameer Ismail &middot; Ismail Systems LLC &middot; Evanston, IL &middot; Illinois LLC #XXXXXXX --></p>
+  <p><a class="tel" href="tel:+18479062560">(847)&nbsp;906-2560</a> &mdash; this number rings me directly.<!-- G2: at M2 cutover replace preceding clause with: &mdash; my own agent answers it. Books a call with me or takes a message and texts me. I eat my own cooking. --></p>
+  <p><a href="mailto:sam@ismailsystems.com">sam@ismailsystems.com</a> &middot; <a href="/privacy.html">Privacy</a></p>
+</footer>
+
+</body>
+</html>
