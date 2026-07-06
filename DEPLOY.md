@@ -1,57 +1,115 @@
-# DEPLOY.md — ismailsystems.com launch runbook (~90 min of account actions)
+# DEPLOY.md — ismailsystems.com deploy runbook (GitHub Pages + Namecheap)
 
-Everything in this repo is finished. What remains is account work only you can do.
-Reference: ismailsystems-website-implementation.md (the guide) for full rationale.
+Hosting, DNS, and email only. Page content and gate state derive from the markers in
+`index.html` per CLAUDE.md — never from this file. If this file and CLAUDE.md's
+**Stack** section ever disagree, CLAUDE.md wins and this file is stale.
 
-## 0. Repo (10 min)
-1. Create private GitHub repo `ismailsystems-site`; commit `index.html`, `privacy.html`, `/assets/favicon.svg`, this file.
-2. Every future edit is a commit on `main`. The site is code; git history is your deploy log and rollback.
+## 0. Repo & hosting — GitHub Pages (15 min)
+1. Create the repo `github.com/ismailsystems/ismailsystems-site` and push `main` to it
+   (`git push -u origin main`). The repo must be **public** — hence the content rule at
+   the top of CLAUDE.md: nothing enters this repo beyond what the deployed site itself
+   reveals.
+2. Settings → Pages → Source: **Deploy from a branch** → `main` / `/ (root)` → Save.
+   The site serves at `https://ismailsystems.github.io/ismailsystems-site/` — usually
+   within a minute, up to ~10 minutes per GitHub's docs.
+3. Settings → Pages → Custom domain: `ismailsystems.com` → Save. GitHub commits a `CNAME`
+   file to `main` — expected; `git pull` before your next local commit.
+4. After the §1 DNS propagates and the certificate issues (minutes to ~24 h), check
+   **Enforce HTTPS**.
 
-## 1. Cloudflare — canonical zone (20 min)
-1. Add site `ismailsystems.com` to Cloudflare (free plan); at your registrar, switch the domain's nameservers to the two Cloudflare gives you. (Repeat the add-site step for the 3 variants — §3.)
-2. **Pages:** Workers & Pages → Create → Pages → connect the GitHub repo → framework preset "None" → deploy. Then Custom domains → add `ismailsystems.com` and `www.ismailsystems.com`.
-3. **Redirect rule** (Rules → Redirect Rules): `www.ismailsystems.com/*` → `https://ismailsystems.com/$1`, 301, preserve query.
-4. **Web Analytics** (optional, cookieless): Analytics → Web Analytics → add site → it gives a snippet; per doctrine you may skip entirely. If used, paste the single script tag just before `</body>` — the only JS on the page, and it's cookieless.
+Every future edit is a commit on `main`; Pages redeploys automatically. Git history is the
+deploy log and the rollback mechanism.
 
-## 2. Email — canonical only (20 min)
-1. Google Workspace Business Starter on ismailsystems.com; create `sam@ismailsystems.com`.
-2. In Cloudflare DNS add exactly what the Workspace wizard prescribes: the MX record(s), then
-   - TXT `@` : `v=spf1 include:_spf.google.com ~all`
-   - DKIM: Admin console → Apps → Gmail → Authenticate email → generate 2048-bit → add the TXT it gives you.
-   - TXT `_dmarc` : `v=DMARC1; p=quarantine; rua=mailto:sam@ismailsystems.com; adkim=s; aspf=s`
-     (**Ramp:** after 2 weeks of clean reports, change `p=quarantine` → `p=reject`.)
-3. Test: send to and from sam@ with a personal account; both directions must land in inbox, not spam.
+## 1. Canonical DNS — Namecheap, `ismailsystems.com` (10 min)
+Domain List → Manage → **Advanced DNS**. Remove any parking/URL-redirect records on `@`
+and `www` first — they conflict. Then:
 
-## 3. Variant zones ×3 (esmail / ismael / esmael) (15 min total)
-For each of the three, in its Cloudflare zone:
-1. **Email Routing** → enable → it auto-inserts its MX + SPF → add catch-all rule: `*@<variant>` → forward to `sam@ismailsystems.com` → click the verification email.
-2. TXT `_dmarc` : `v=DMARC1; p=reject`   (variants never send; reject spoofing).
-3. **Redirect rule:** `<variant>/*` and apex → `https://ismailsystems.com` 301 (drop path).
-4. Test one: email `anything@esmailsystems.com` from a personal account → arrives at sam@; open `https://ismaelsystems.com` → lands on the canonical site.
+| Type  | Host | Value                       | Notes                                        |
+|-------|------|-----------------------------|----------------------------------------------|
+| A     | @    | `185.199.108.153`           | GitHub Pages                                 |
+| A     | @    | `185.199.109.153`           | GitHub Pages                                 |
+| A     | @    | `185.199.110.153`           | GitHub Pages                                 |
+| A     | @    | `185.199.111.153`           | GitHub Pages                                 |
+| CNAME | www  | `ismailsystems.github.io.`  | GitHub redirects www → apex once §0.3 is set |
+
+## 2. Email — Google Workspace, canonical domain only (20 min)
+1. Google Workspace on `ismailsystems.com`; create `sam@ismailsystems.com`.
+2. **MX / SPF / DKIM** — add exactly what the Workspace setup wizard prescribes in
+   Namecheap Advanced DNS. Current prescription (defer to the wizard if it differs):
+
+| Type | Host               | Value                                                                    |
+|------|--------------------|--------------------------------------------------------------------------|
+| MX   | @                  | `smtp.google.com` (priority 1)                                           |
+| TXT  | @                  | `v=spf1 include:_spf.google.com ~all`                                    |
+| TXT  | google._domainkey  | DKIM value: Admin console → Apps → Gmail → Authenticate email → 2048-bit |
+
+   After the DKIM TXT propagates, return to **Authenticate email** and click
+   **Start authentication**; the status must read "Authenticating email" before
+   the DMARC ramp below begins (unsigned mail + strict alignment = DMARC failures).
+3. **DMARC** — fixed policy per CLAUDE.md's Stack, *not* wizard-prescribed (Google's
+   guided setup starts at `p=none`; don't take that). Strict alignment is this
+   runbook's deliberate choice:
+
+| Type | Host    | Value                                                                       |
+|------|---------|------------------------------------------------------------------------------|
+| TXT  | _dmarc  | `v=DMARC1; p=quarantine; rua=mailto:sam@ismailsystems.com; adkim=s; aspf=s` |
+
+4. **DMARC ramp:** after ~2 weeks of clean aggregate reports, change `p=quarantine` →
+   `p=reject`.
+5. Test with a personal account, both directions; both must land in inbox, not spam.
+
+## 3. Variant domains ×3 — redirect stubs + receive-only mail (30 min)
+The three misspelling variants (the esmail / ismael / esmael forms — full domains are
+never written in this repo, per CLAUDE.md law 8). Each gets an HTTPS redirect stub and
+receive-only mail forwarding. Variants never send mail.
+
+**Per variant — redirect stub** (closes the HTTPS-redirect gap registrar forwarding
+leaves: registrar redirects don't carry a certificate for the variant, so `https://`
+visits would fail without this):
+
+1. Create a public repo (any name; the variant domain itself must not appear in repo
+   *contents*, though GitHub will write it into that stub repo's own `CNAME` file —
+   that's the Pages mechanism, not this repo). Its entire content is one `index.html`:
+
+   ```html
+   <!doctype html>
+   <html lang="en">
+   <meta charset="utf-8">
+   <meta http-equiv="refresh" content="0; url=https://ismailsystems.com/">
+   <link rel="canonical" href="https://ismailsystems.com/">
+   <title>ismailsystems.com</title>
+   <p><a href="https://ismailsystems.com/">Continue to ismailsystems.com</a></p>
+   </html>
+   ```
+
+2. Enable Pages (branch `main`, root), set that variant's apex as the custom domain,
+   and at Namecheap give the variant the same four A records as the §1 table
+   (plus, optionally, `www` CNAME → `ismailsystems.github.io.` for www-form typos).
+   Enforce HTTPS once the certificate issues.
+
+**Per variant — email (Namecheap, receive-only):**
+
+| Setting        | Value                                                                 |
+|----------------|-----------------------------------------------------------------------|
+| Email forwarding | Domain tab → Redirect Email → catch-all `*` → `sam@ismailsystems.com` (Namecheap auto-inserts its forwarding MX; requires Namecheap's own nameservers — BasicDNS/PremiumDNS/FreeDNS, not third-party DNS) |
+| TXT `@`        | `v=spf1 include:spf.efwd.registrar-servers.com -all` — the include authorizes only Namecheap's forwarders, which resend under this domain; their KB says forwarding breaks without it. The variant itself still never sends, and all other senders hard-fail. |
+| TXT `_dmarc`   | `v=DMARC1; p=reject`                                                   |
+
+**Test one variant end-to-end:** mail sent to any address at it arrives at sam@;
+`https://` on the bare variant lands on `https://ismailsystems.com/` with a valid
+certificate.
 
 ## 4. Verification pass (10 min)
-- `https://ismailsystems.com` and `/privacy.html` load; dark mode looks right (toggle OS theme).
-- Phone links: tap (847) 906-2560 on your phone — it should ring your cell via the Twilio forward. **If the forward isn't live-tested yet, do that first** — this same test clears the GBP gate.
-- Lighthouse (Chrome DevTools → Lighthouse, mobile): expect ≥95 across the board; the architecture makes failure hard.
-- Text the URL to yourself: the iMessage preview shows title + description (image comes later — §6).
+- `https://ismailsystems.com/` and `/privacy.html` load over HTTPS; `www` and the
+  `*.github.io` URL both end up at the apex.
+- Toggle OS dark mode; both color schemes render correctly.
+- Tap the `tel:` links on a phone; (847) 906-2560 connects.
+- Lighthouse (Chrome DevTools, **mobile**): ≥95 in all categories, per design law 3.
+- Text the URL to yourself; the link preview shows title + description (the image
+  arrives when G-OG closes).
 
-## 5. Hook-ups (5 min)
-- Paste `https://ismailsystems.com` into the GBP website field (the wizard you had open).
-- Add the site to your LinkedIn contact-info section. (The LLC *position* on LinkedIn stays gated on the agreement — unchanged.)
-
-## 6. Swap-point registry (all future edits are one-line changes, marked in-file)
-| Marker in index.html | Trigger | Action |
-|---|---|---|
-| `G-PHOTO` comment | daylight photo exists | export WebP ≤120KB → `/assets/sam.webp` → uncomment the `<img>` |
-| `G-OG` comment | photo exists | build 1200×630 `/assets/og.jpg` (photo left, "Ismail Systems" + one-liner right) → uncomment the two meta tags → re-text yourself the URL |
-| `G1` comment (footer) | **LLC filed** | swap footer line to the full legal string with the SOS file number |
-| `G2` comment (footer) | M2 cutover (agent answers 906-2560) | swap "rings me directly" clause for the agent sentence |
-| `G3` + `DEMO_NUMBER` | M4 demo pool live | unhide `#hear`, fill the number in both places |
-| JSON-LD | LinkedIn/GBP URLs final | add `"sameAs":["<GBP URL>","<LinkedIn URL>"]` |
-
-## 7. Rituals (from the guide)
-- Monthly: Google your name, "Ismail Systems," and (847) 906-2560 (incl. a spam-lookup site). Target SERP: LinkedIn + this site + GBP — three congruent results.
-- Quarterly: truth-audit every sentence on the page against reality.
-
-## Letter gate reminder
-The site may be live today. **Letters do not mail** until: G1 footer real (LLC filed), photo live, brother-test passed, and the audit shortlist exists. The LLC filing waits on the employment-agreement read — the standing two-minute version: paste the invention-assignment and outside-activities paragraphs into chat.
+## Appendix — `/assets/og.jpg` spec (referenced by the G-OG marker in index.html)
+1200×630 JPEG: photo left, "Ismail Systems" wordmark + one-liner right. Keep it lean
+(target ≤150 KB; it's fetched only by link-preview scrapers, never by the page itself,
+so it doesn't count against page weight). The swap action itself lives at the G-OG
+marker in index.html and CLAUDE.md's registry — not here.
