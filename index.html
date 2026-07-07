@@ -3,34 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ismail Systems — AI phone agents for North Shore trades, run by one accountable operator</title>
-<meta name="description" content="After-hours AI phone agents for HVAC, plumbing, and electrical shops around Evanston and Chicago's North Shore. Built and personally watched by Sam Ismail. Never misses a call; reports every Monday.">
-<meta property="og:title" content="Ismail Systems — your after-hours calls, answered and watched">
-<meta property="og:description" content="AI answers as your company. I watch every call. Monday reports include what went wrong and the fix.">
+<title>Ismail Systems — after-hours calls answered for the trades — North Shore of Chicago</title>
+<meta name="description" content="I put Third Shift, my own AI answering system, on your shop's line after hours. It answers as your company and books the job. I check its work every night. HVAC, plumbing, and electrical — North Shore of Chicago.">
+<meta property="og:title" content="Ismail Systems — all of your after-hours calls answered">
+<meta property="og:description" content="Third Shift answers as your company, books the job, and pages your tech. I check its work every night.">
 <meta property="og:url" content="https://ismailsystems.com/">
 <!-- G-OG: uncomment when /assets/og.jpg exists (1200x630 — photo left, wordmark + one-liner right; spec in DEPLOY.md)
 <meta property="og:image" content="https://ismailsystems.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 -->
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService",
  "name":"Ismail Systems LLC","url":"https://ismailsystems.com",
  "telephone":"+18479062560","email":"sam@ismailsystems.com",
- "description":"AI phone agents that answer after-hours calls for HVAC, plumbing, and electrical companies on Chicago's North Shore — built, integrated with dispatch software, and personally monitored by Sam Ismail, with weekly reporting.",
+ "description":"Third Shift: an AI answering system that takes after-hours calls for HVAC, plumbing, and electrical companies on Chicago's North Shore — built and run by Sam Ismail, its work checked nightly, with weekly written reporting.",
  "areaServed":["Evanston IL","Wilmette IL","Skokie IL","Winnetka IL","Glenview IL","Morton Grove IL","Niles IL","Park Ridge IL"],
  "founder":{"@type":"Person","name":"Sameer Ismail","alternateName":"Sam Ismail"}}
 </script>
 <style>
 :root{
+  color-scheme:light;     /* light only, deliberately — no dark variant */
   --ink:#1a1a1a;          /* text */
   --paper:#faf9f7;        /* ground */
-  --amber:#b45309;        /* worksite amber — links, the one accent */
+  --navy:#1e3a5f;         /* workwear navy — headings, links, letterhead */
+  --red:#a63a2b;          /* brick red — phone numbers, timestamps, the stamp */
   --rule:#d9d5cd;         /* hairlines */
   --measure:65ch;
-}
-@media (prefers-color-scheme:dark){
-  :root{--ink:#e8e6e3;--paper:#161513;--rule:#3a3833;--amber:#d97a2b}
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -40,121 +39,310 @@ body{
   max-width:var(--measure);margin:0 auto;padding:2.5rem 1.25rem 4rem;
 }
 h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;letter-spacing:-0.015em;margin:.5rem 0 .25rem}
-h2{font-size:1.2rem;line-height:1.3;margin:0 0 .75rem}
-.sub{font-size:1.05rem;margin:0 0 .5rem}
-section,footer{border-top:1px solid var(--rule);margin-top:2.5rem;padding-top:2rem}
+.h1b{display:block;margin-top:.9rem}
+h2{font-size:1.2rem;line-height:1.3;margin:0 0 .75rem;color:var(--navy)}
+.sub{font-size:1.05rem}
+section{border-top:1px solid var(--rule);margin-top:2.5rem;padding-top:2rem}
 p{margin:0 0 1rem}
-a{color:var(--amber);text-underline-offset:2px}
-a:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+a{color:var(--navy);text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
 strong{font-weight:650}
 .tel{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.95em;white-space:nowrap}
+.when{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85em;font-weight:700;color:var(--red);margin-right:.35rem;white-space:nowrap}
+.stripe{height:9px;background:repeating-linear-gradient(-45deg,var(--navy) 0 16px,var(--red) 16px 23px)}
+.seam{margin:.1rem 0 1.75rem}
+.brandrow{display:flex;align-items:center;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;padding:.1rem 0 .65rem}
+.brandrow .co{display:flex;align-items:center;gap:.7rem;line-height:1.15}
+.brandrow .co b{font-size:1.4rem;line-height:1;letter-spacing:.03em;color:var(--navy)}
+.brandrow svg{flex:none;display:block}
+a.hotline{display:block;border:2px solid var(--red);padding:.3rem .7rem;text-align:center;line-height:1.25;margin-left:auto;color:var(--red);font-weight:700;text-decoration:none}
+.hotline small{display:block;font-size:.66rem;font-weight:700;letter-spacing:.14em}
+.hotline .tel{font-size:1rem}
+.midcall a{display:inline-block;border:2px solid var(--red);padding:.4rem .8rem;margin-top:.35rem;color:var(--red);font-weight:700;text-decoration:none}
+.midcall a::before,#call .bignum a::before{content:"";display:inline-block;width:.85em;height:.85em;margin-right:.45em;vertical-align:-.06em;background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a63a2b'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center/contain}
+.tap{display:block;font-size:.6rem;letter-spacing:.18em;font-weight:700;margin-top:.1rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.ts{display:inline-block;background:var(--navy);color:#fff;text-transform:uppercase;font-weight:800;font-size:.68em;letter-spacing:.1em;padding:.2em .55em .16em;border-radius:3px;border-left:3px solid var(--red);vertical-align:.08em;white-space:nowrap;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.report .ts{font-size:.82em}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes ringpulse{0%{box-shadow:0 0 0 0 rgba(166,58,43,.3)}70%{box-shadow:0 0 0 10px rgba(166,58,43,0)}100%{box-shadow:0 0 0 0 rgba(166,58,43,0)}}
+  #call .bignum{animation:ringpulse 2.6s ease-out infinite}
+}
+.slip{max-width:340px;margin:1.5rem auto 1.25rem;background:#fdf2ef;border:1px solid var(--red);box-shadow:3px 4px 0 rgba(26,26,26,.12);padding:1rem 1.1rem .8rem;font-size:.9rem}
+#what figcaption{text-align:center}
+u{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:3px}
+.slip h3{margin:0 0 .5rem;font-size:.8rem;letter-spacing:.16em;color:var(--red);text-align:center;border-bottom:1px dashed var(--red);padding-bottom:.45rem}
+.slip .row{display:flex;gap:.6rem;margin:.5rem 0 0;border-bottom:1px dotted #c9a29a;padding-bottom:.25rem}
+.slip .row b{flex:none;font-size:.68rem;letter-spacing:.06em;opacity:.75;font-weight:700;padding-top:.2rem}
+.slip .row span{font-style:italic}
+#area svg{width:100%;height:auto;display:block}
+.bignum{font-size:1.5rem;margin:.25rem 0 .75rem}
+.bignum a{color:var(--red)}
+#call{text-align:center;border-top:3px solid var(--navy)}
+#call .bignum{display:inline-block;border:3px solid var(--red);padding:.45rem 1.3rem;font-size:2rem;margin:.5rem 0 .75rem}
+#deal .report td{padding:.45rem 0;border-bottom:1px dotted #c9c4bb}
+#deal .report tr:last-child td{border-bottom:0}
+#deal .report{font-size:.88rem}
+ul{margin:0 0 1rem;padding-left:1.2rem}
+li{margin:.4rem 0}
 figure{margin:1.5rem 0}
 figcaption{font-size:.85rem;opacity:.75;margin-top:.5rem}
 /* The exhibit: the Monday report as a document, in the trades' paperwork vernacular */
 .report{
-  border:1px solid var(--ink);padding:1.1rem 1.2rem;background:transparent;
+  border:1px solid var(--ink);padding:1.1rem 1.2rem;background:#fff;
+  box-shadow:3px 4px 0 rgba(26,26,26,.12);
   font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.55;
   overflow-x:auto;
 }
 .report header{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--ink);padding-bottom:.5rem;margin-bottom:.6rem;font-weight:700}
-.report .stamp{color:var(--amber);font-weight:700;letter-spacing:.08em}
+.report .stamp{color:var(--red);font-weight:700;letter-spacing:.08em;white-space:nowrap}
 .report table{width:100%;border-collapse:collapse}
 .report td{padding:.18rem 0;vertical-align:top}
 .report td:last-child{text-align:right;font-weight:650;white-space:nowrap}
 .report .wrong{border-top:1px dashed var(--rule);margin-top:.6rem;padding-top:.6rem}
-.report .wrong b{color:var(--amber)}
+.report .wrong b{color:var(--red)}
 dl{margin:0}
 dt{font-weight:650;margin-top:1.1rem}
 dd{margin:0.25rem 0 0}
-footer{font-size:.9rem}
 header.masthead p{margin:0}
-img.face{width:132px;height:132px;object-fit:cover;border:1px solid var(--ink);float:right;margin:0 0 .75rem 1rem}
-@media (max-width:480px){img.face{width:96px;height:96px}}
+.facewrap{float:right;width:132px;margin:0 0 .75rem 1rem}
+.facewrap img{width:132px;height:132px;object-fit:cover;border:1px solid var(--rule);border-radius:6px;display:block}
+.facewrap figcaption{font-size:.7rem;line-height:1.35;text-align:center;margin-top:.4rem;opacity:.8}
+@media (max-width:480px){
+  .facewrap{width:96px}.facewrap img{width:96px;height:96px}
+  .facewrap figcaption{font-size:.62rem}
+  h1{font-size:1.45rem}
+  .report header{font-size:.72rem}
+  #call .bignum{font-size:1.55rem;padding:.45rem .9rem}
+}
+a{-webkit-tap-highlight-color:rgba(166,58,43,.15)}
+@media (hover:hover){
+  a.hotline:hover,.midcall a:hover,#call .bignum:hover{background:#f7e8e5;transition:background .12s}
+}
+@media (prefers-reduced-motion:no-preference){
+  a.hotline:active,.midcall a:active,#call .bignum:active{transform:translateY(1px)}
+}
+@media print{
+  .ts{background:none;color:var(--navy);border:1px solid var(--navy);border-left:3px solid var(--red)}
+  .stripe,.tap{display:none}
+  .report,.slip{break-inside:avoid;box-shadow:none}
+  #call .bignum{animation:none}
+}
 </style>
 </head>
 <body>
 
 <header class="masthead">
-  <!-- G-PHOTO: replace src when the daylight photo exists (WebP <=120KB, width/height attrs). Until then this img is absent, not broken. -->
-  <!-- <img class="face" src="/assets/sam.webp" width="132" height="132" alt="Sam Ismail"> -->
-  <h1>I build and run the AI that answers your after&#8209;hours calls.</h1>
-  <p class="sub"><strong>For HVAC, plumbing, and electrical shops on Chicago&rsquo;s North Shore.</strong></p>
+  <div class="brandrow">
+    <p class="co"><svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="4" fill="#1e3a5f"/><text x="17" y="23" text-anchor="middle" font-family="-apple-system,'Segoe UI',Arial,sans-serif" font-weight="800" font-size="15" fill="#fff">IS</text></svg><b>ISMAIL&nbsp;SYSTEMS</b></p>
+    <a class="hotline" href="tel:+18479062560"><small>DIRECT&nbsp;LINE</small><span class="tel">(847)&nbsp;906-2560</span></a>
+  </div>
+  <div class="stripe seam"></div>
+  <figure class="facewrap">
+    <img src="assets/sam.jpg" width="132" height="132" alt="Sam Ismail">
+    <figcaption>AI Engineering Manager in Healthcare</figcaption>
+  </figure>
+  <h1>All of your after&#8209;hours calls answered.<span class="h1b">Jobs booked, not messages taken.</span></h1>
+  <p class="sub">After-hours answering for HVAC, plumbing, and electrical shops on Chicago&rsquo;s North Shore.</p>
 </header>
 
 <section id="what" aria-labelledby="what-h">
-  <h2 id="what-h">The problem, plainly</h2>
-  <p>Your shop misses calls every week &mdash; after close, during a rush, on the Fourth of July. Industry data says roughly one in four inbound calls to home-services companies goes unanswered. Each one is a job dialing the next name on Google.</p>
-  <p>I build a phone agent that answers as <strong>your</strong> company: it sorts a real emergency from a tune-up, captures the name, address, and callback, books the job into your board (Housecall Pro, Jobber, ServiceTitan), texts the customer a confirmation &mdash; and pages your on-call tech in under a minute when it&rsquo;s a 2am no-heat with kids in the house.</p>
-  <p><strong>Then I watch it.</strong> That&rsquo;s the part you can&rsquo;t buy off a shelf.</p>
+  <h2 id="what-h">Stop losing calls</h2>
+  <p>Call your own shop some Saturday night. Listen to what your customers hear.</p>
+  <p><a href="https://www.invoca.com/blog/how-much-missed-sales-calls-cost-home-services-businesses" target="_blank" rel="noopener">Call-tracking studies</a> across the trades put it at about <u>1 call in 4 going unanswered</u>. After close. During a rush. On the Fourth of July. A homeowner with a dead furnace doesn&rsquo;t leave a voicemail. He calls the next name on Google.</p>
+  <p><u>How many calls did your shop miss last month?</u> The number is sitting in your phone log right now. Most owners never count it. And even if you count, the log can&rsquo;t tell you the part that matters: who called, what the job was worth, or where it went.</p>
+  <p>If a missed call filled out a message slip, here&rsquo;s what you&rsquo;d get:</p>
+  <figure aria-label="A phone message slip from a missed call, with nothing useful on it">
+    <div class="slip">
+      <h3>WHILE YOU WERE OUT</h3>
+      <p class="row"><b>FOR</b> <span>You</span></p>
+      <p class="row"><b>DAY</b> <span>Saturday</span></p>
+      <p class="row"><b>TIME</b> <span>9:41 PM</span></p>
+      <p class="row"><b>TAKEN&nbsp;BY</b> <span>Nobody &mdash; the phone just rang</span></p>
+      <p class="row"><b>FROM</b> <span>Didn&rsquo;t say</span></p>
+      <p class="row"><b>NUMBER</b> <span>Didn&rsquo;t leave one, so there&rsquo;s no calling back</span></p>
+      <p class="row"><b>THE&nbsp;JOB</b> <span>No heat? Burst pipe? A full install? You&rsquo;ll never know</span></p>
+      <p class="row"><b>MESSAGE</b> <span>None. They called the next shop on Google</span></p>
+    </div>
+    <figcaption>That job is on somebody else&rsquo;s schedule now.</figcaption>
+  </figure>
+  <p>Five new booked jobs in your first month, or every dollar back. In writing.</p>
+  <p class="midcall">Stop the next one: <a class="tel" href="tel:+18479062560">(847)&nbsp;906-2560</a></p>
 </section>
 
-<section id="me" aria-labelledby="me-h">
-  <h2 id="me-h">It&rsquo;s just me. That&rsquo;s the point.</h2>
-  <p>My name is Sam Ismail. By day I&rsquo;m an engineering manager at a public healthcare technology company, where I build and run AI agents that process about twenty thousand operations a day &mdash; work where a dropped item means a patient&rsquo;s test falls through the cracks. This business is a smaller version of my day job, built for shops like yours, and I operate it personally: I read the transcripts, I catch the failures, I answer for the result.</p>
-  <p>You&rsquo;ve probably been pitched &ldquo;AI&rdquo; by companies with big teams and bigger promises. I&rsquo;m the opposite bet: one accountable person, a handful of shops at a time, and a report every Monday that includes anything my own system got wrong &mdash; with the fix.</p>
+<section id="fix" aria-labelledby="fix-h">
+  <h2 id="fix-h">Put a stop to it</h2>
+  <p>I built <span class="ts">Third&nbsp;Shift</span>: my own AI answering system for your line after hours. Not something I resell. <u>A voice picks up as your company, and I check its work every night.</u> It works your closed hours like a night crew. Here&rsquo;s what it does:</p>
+  <ul>
+    <li>Answers every call as <u>your</u> company.</li>
+    <li>Tells a real emergency from a tune-up.</li>
+    <li>Books the job onto your schedule.</li>
+    <li>Pages your on-call tech for real emergencies &mdash; in under a minute.</li>
+    <li>Always texts the customer back.</li>
+  </ul>
+  <p><u>Nothing it does goes unchecked.</u> That&rsquo;s the part you can&rsquo;t buy off the shelf.</p>
+  <p>And your phones stay yours: same number, same phone company. After close, your line forwards. Turn it off any time.</p>
+</section>
+
+<!-- G3: unhide when the demo line is live; replace DEMO_NUMBER in both places. -->
+<section id="hear" aria-labelledby="hear-h" hidden>
+  <h2 id="hear-h">Hear it before you spend a dime</h2>
+  <p class="bignum"><a class="tel" href="tel:+1DEMO_NUMBER">DEMO_NUMBER</a></p>
+  <p>That number is answered by <span class="ts">Third&nbsp;Shift</span>, the same system that would answer your line. It picks up as <em>North Shore Heating &amp; Cooling</em> &mdash; a made-up shop I built so you can test it. Tell it your furnace died. Ask what a new one costs (it won&rsquo;t guess). Ask if it&rsquo;s a robot (it won&rsquo;t lie). Try to shake it.</p>
+  <p>Yours would know your prices, your towns, your on-call rotation.</p>
+</section>
+
+<section id="night" aria-labelledby="night-h">
+  <h2 id="night-h">One night, hour by hour</h2>
+  <p>Here&rsquo;s what a typical night looks like:</p>
+  <dl>
+    <dt><span class="when">9:14pm</span> Furnace out, house at 58&deg;, kids at home</dt>
+    <dd>Third Shift answers on the first ring, as your company. It gets the name, address, and phone number. Within a minute, your on-call tech gets one text: the problem, the address, the number, the gate code. The caller gets a text too: help is on the way.</dd>
+    <dt><span class="when">10:02pm</span> &ldquo;So what does a new furnace run?&rdquo;</dt>
+    <dd>It never guesses a price. It reads straight off your price book &mdash; only lines you approved. Then it books the visit.</dd>
+    <dt><span class="when">11:38pm</span> &ldquo;Am I talking to a robot?&rdquo;</dt>
+    <dd>It tells the truth: it&rsquo;s the AI that answers your phones after hours. Then it goes back to booking the job.</dd>
+    <dt><span class="when">1:51am</span> &ldquo;I keep smelling rotten eggs.&rdquo;</dt>
+    <dd>It stops booking. It tells the caller: leave the house, call 911 from outside. Then it pages your tech.</dd>
+    <dt><span class="when">3:20am</span> One ring, then a hang-up</dt>
+    <dd>Within a minute, it texts the caller to ask what they need. A hang-up turns into a lead, not a lost job.</dd>
+    <dt><span class="when">6:45am</span> Your office sits down to one clean list</dt>
+    <dd>Every overnight call is in one morning summary. Emergencies first. Details filled in. No digging through voicemail. Nobody loses their job to this &mdash; the morning just starts easier.</dd>
+  </dl>
 </section>
 
 <section id="never" aria-labelledby="never-h">
-  <h2 id="never-h">What it will never do</h2>
-  <p>It will never make up a price &mdash; it only quotes lines you&rsquo;ve approved. It never pretends to be human; ask it, it tells the truth. It never takes card numbers. It never argues with an angry customer. It never touches your daytime line unless you ask. And when someone mentions a gas smell, it doesn&rsquo;t book an appointment &mdash; it tells them to get out and call 911, and pages your tech.</p>
-  <p>The fences are the product. Ask anyone who&rsquo;s turned an AI tool off.</p>
+  <h2 id="never-h">What <span class="ts">Third&nbsp;Shift</span> will never do</h2>
+  <p>I built these rules in myself. They are not settings. A caller can&rsquo;t talk Third Shift out of them &mdash; and neither can a bad night.</p>
+  <ul>
+    <li>Third Shift will never make up a price. It quotes straight off your price book, word for word.</li>
+    <li>It never offers a time slot that isn&rsquo;t really open.</li>
+    <li>It never books a job outside your service area.</li>
+    <li>It never claims to be a person. Ask it &mdash; it tells the truth.</li>
+    <li>It never takes credit card numbers.</li>
+    <li>It never argues with an angry customer.</li>
+    <li>It never wakes your tech for something that can wait until 8am &mdash; and never gives out his cell. What counts as an emergency is your list, written down at set-up, not a judgment call at 2am. When it&rsquo;s real, its whole job is putting a person on it, fast.</li>
+    <li>It never touches your daytime line unless you ask.</li>
+    <li>It never replaces your office staff. It just makes their morning easier.</li>
+  </ul>
+  <p>That list is most of the product. If an AI tool burned you before, it was missing these rules.</p>
+  <p class="midcall">Burned before? Tell me what it got wrong: <a class="tel" href="tel:+18479062560">(847)&nbsp;906-2560</a></p>
 </section>
 
 <section id="monday" aria-labelledby="monday-h">
-  <h2 id="monday-h">What you see every Monday</h2>
+  <h2 id="monday-h">Get it in writing, every Monday</h2>
+  <p>One page. Your numbers. A PDF in your email every Monday morning.</p>
   <figure>
     <div class="report" role="img" aria-label="Sample weekly report: calls answered, jobs booked, dollars attached, guarantee count, and what went wrong with the fix">
-      <header><span>ISMAIL SYSTEMS &mdash; WEEKLY REPORT</span><span class="stamp">SAMPLE FORMAT</span></header>
+      <header><span>ISMAIL SYSTEMS &mdash; WEEKLY REPORT</span><span class="stamp">SAMPLE</span></header>
       <table>
-        <tr><td>Client</td><td>North Shore Heating &amp; Cooling (fictional)</td></tr>
-        <tr><td>Week</td><td>Day 32&ndash;38 of 60-day pilot</td></tr>
+        <tr><td>Client</td><td>North Shore Htg &amp; Clg</td></tr>
+        <tr><td>Guarantee window</td><td>week 3 of 4</td></tr>
         <tr><td>Calls answered</td><td>41</td></tr>
-        <tr><td>Jobs booked from recovered calls</td><td>9</td></tr>
-        <tr><td>Invoice dollars attached to date</td><td>$6,340</td></tr>
-        <tr><td>Guarantee ledger</td><td>17 booked of 10 required</td></tr>
+        <tr><td>Jobs booked from calls you&rsquo;d have missed</td><td>3</td></tr>
+        <tr><td>Money invoiced so far</td><td>$6,300</td></tr>
+        <tr><td>Guarantee count</td><td>6 of 5 (met)</td></tr>
       </table>
       <div class="wrong">
         <b>WHAT WENT WRONG THIS WEEK (1)</b><br>
-        Tue 2:14am &mdash; caller pressed for a full system price; agent correctly refused to invent one but repeated the diagnostic offer twice (clumsy). Fix deployed Wed; a test for this exact exchange now runs before every update.
+        Tue 2:14am &mdash; a caller pushed for a full-system price. Third Shift held the line (good) but offered the diagnostic visit twice in a row (clumsy). I fixed it Wednesday, and that exact conversation is now tested before any change goes live.
       </div>
     </div>
-    <figcaption>Sample format &mdash; including the section vendors don&rsquo;t publish. Yours would carry your numbers.</figcaption>
+    <figcaption>A made-up example of the Monday PDF &mdash; yours would show your numbers.</figcaption>
   </figure>
+  <p class="midcall">Want this on your desk Monday morning? <a class="tel" href="tel:+18479062560">(847)&nbsp;906-2560</a></p>
+</section>
+
+<section id="me" aria-labelledby="me-h">
+  <h2 id="me-h">Who you&rsquo;re hiring</h2>
+  <p>My name is Sam Ismail. It&rsquo;s my name on the door, and it&rsquo;s my cell that rings when you call.</p>
+  <p>Building and running AI systems is my trade &mdash; I&rsquo;ve done it for years. Born and raised around Chicago. I built <span class="ts">Third&nbsp;Shift</span> for the trades here, and I stand behind it.</p>
+  <p>Every night, here&rsquo;s what I do:</p>
+  <ul>
+    <li>Go over every job Third Shift booked.</li>
+    <li>Make sure every emergency page went where it should.</li>
+    <li>Fix anything that looks off &mdash; before you ever see it.</li>
+  </ul>
+  <p>You&rsquo;ve probably been pitched &ldquo;AI&rdquo; by a big company before. I&rsquo;m not that. I take shops one at a time, and I don&rsquo;t take the next one until yours runs right.</p>
 </section>
 
 <section id="deal" aria-labelledby="deal-h">
-  <h2 id="deal-h">The deal</h2>
-  <p><strong>$2,500</strong> to build it on your price book, your service area, and your board. <strong>$1,500/month</strong> for me to run it, watch every call, and report every Monday. Sixty-day pilot, after-hours and overflow only.</p>
-  <p><strong>If it doesn&rsquo;t book you at least ten jobs from calls you&rsquo;re currently missing in sixty days, the $2,500 comes back.</strong> I can offer that because this business isn&rsquo;t my rent money &mdash; my day job funds it, which means the guarantee is real and the incentive to keep an unhappy shop&rsquo;s check doesn&rsquo;t exist.</p>
-</section>
-
-<!-- G3: unhide at M4 when the demo line exists; replace DEMO_NUMBER in both places. -->
-<section id="hear" aria-labelledby="hear-h" hidden>
-  <h2 id="hear-h">Hear one work</h2>
-  <p><strong>Call <a class="tel" href="tel:+1DEMO_NUMBER">DEMO_NUMBER</a>.</strong> It answers as <em>North Shore Heating &amp; Cooling</em> &mdash; a fictional shop I built to be tested. Tell it your furnace died. Ask it what a new one costs (it won&rsquo;t guess). Ask if it&rsquo;s a robot (it won&rsquo;t lie). Yours would know your prices, your towns, your on-call rotation.</p>
+  <h2 id="deal-h">What it costs</h2>
+  <figure>
+    <div class="report" role="img" aria-label="Quote: $3,000 set-up, half at signing and half at go-live, $1,500 per 30 days, live within 3 days, covers the hours you choose, 30-day guarantee window from go-live, month-to-month after; guarantee: five new jobs in the first month or the full $4,500 back, in writing">
+      <header><span>ISMAIL SYSTEMS LLC &mdash; QUOTE</span><span class="stamp">NO SURPRISES</span></header>
+      <table>
+        <tr><td>Set-up &mdash; your prices, your area, your hours (half at signing, half at go-live)</td><td>$3,000</td></tr>
+        <tr><td>I run it, check its work nightly, put a report on your desk every Monday</td><td>$1,500 / 30 days</td></tr>
+        <tr><td>Up and answering</td><td>within 3 days</td></tr>
+        <tr><td>Covers the hours you choose &mdash; after close, open hours, or both</td><td>your call</td></tr>
+        <tr><td>The guarantee window</td><td>30 days from go-live</td></tr>
+        <tr><td>After that</td><td>month-to-month</td></tr>
+      </table>
+      <div class="wrong">
+        <b>THE GUARANTEE</b><br>
+        At least five new jobs on your board in the first thirty days &mdash; booked from calls you&rsquo;re missing today &mdash; or you get <u>all of it</u> back: the full $4,500, the $3,000 set-up and the $1,500 month, both. In writing, before day one.
+      </div>
+    </div>
+  </figure>
+  <p>That&rsquo;s the whole worst case: <u>five new jobs, or every dollar back</u>. A job counts when a call Third Shift answered ends with an appointment on your schedule &mdash; and the Monday report counts them, so you&rsquo;re never taking my word for it. If your phone log already shows five after-hours bookings a month, you don&rsquo;t need me. Go count.</p>
+  <p>And you don&rsquo;t have to ask for the refund. The Monday report does the counting &mdash; if day 30 shows under five, it goes out that week.</p>
+  <p>You&rsquo;d be one of my first shops. That&rsquo;s why the guarantee is this heavy and the attention this personal.</p>
+  <p class="midcall">Don&rsquo;t wait for the next missed call: <a class="tel" href="tel:+18479062560">(847)&nbsp;906-2560</a></p>
 </section>
 
 <section id="faq" aria-labelledby="faq-h">
   <h2 id="faq-h">Straight answers</h2>
   <dl>
-    <dt>Is this your full-time job?</dt>
-    <dd>No &mdash; deliberately. See &ldquo;the deal&rdquo; above for why that makes the guarantee stronger, not weaker. I take on shops one at a time.</dd>
-    <dt>What happens when it screws up?</dt>
-    <dd>It will, occasionally &mdash; anything that answers phones does. The difference is that I find it before you do: every call is audited nightly, failures go in your Monday report with the fix, and anything serious gets a phone call from me the same day.</dd>
-    <dt>We tried an AI thing and shut it off.</dt>
-    <dd>Then you&rsquo;re exactly who this is for. Tell me what it got wrong &mdash; that&rsquo;s the first thing I&rsquo;ll engineer a test for. A tool nobody watches does what yours did. You tried a tool. I&rsquo;m the operator.</dd>
-    <dt>What if we part ways?</dt>
-    <dd>Everything&rsquo;s portable and documented &mdash; your number, your call history, the configuration. Month-to-month after the pilot. A service you can&rsquo;t leave is a service you can&rsquo;t trust.</dd>
-    <dt>Is a $79/month answering bot enough for us?</dt>
-    <dd>If you&rsquo;re a one-truck shop with light call volume &mdash; honestly, maybe. Call me and I&rsquo;ll tell you straight; talking a shop out of hiring me costs me less than a bad fit does.</dd>
+    <dt>I already pay an answering service.</dt>
+    <dd>A service takes a message and leaves the callback for the morning. Mine answers as your company, books the job, texts the customer back, and pages your tech when it&rsquo;s real. A message isn&rsquo;t a booked job. <a href="tel:+18479062560">Call me</a> and compare it against what you pay now.</dd>
+    <dt>Do I have to change my phone number?</dt>
+    <dd>No. You keep your phone number and your phone company, exactly the same. After you close, your line forwards to Third Shift. Turn it off any time.</dd>
+    <dt>How do jobs get onto my schedule?</dt>
+    <dd>However you book jobs today &mdash; software or the book on the desk. Every booked job reaches your office as a clean text and email with the name, address, problem, and time, plus a calendar invite. If your scheduling software can take it directly, I wire that in during set-up.</dd>
+    <dt>What do you need from me?</dt>
+    <dd>A signature, half the set-up down, and a sit-down in person: your prices, your service area, who&rsquo;s on call which nights. I handle the rest.</dd>
+    <dt>What if the AI gets something wrong?</dt>
+    <dd>I check its work every night. If something&rsquo;s off, it goes in your Monday report with the fix. Anything serious, you get a phone call from me the same day.</dd>
+    <dt>Tried an AI thing before and shut it off?</dt>
+    <dd>Then you&rsquo;re exactly who this is for. Tell me what it got wrong. That&rsquo;s the first thing I&rsquo;ll test for. A tool nobody checks will do what yours did. Mine gets checked every night.</dd>
+    <dt>How many shops do you take on?</dt>
+    <dd>One at a time. I don&rsquo;t take the next shop until yours runs right. That&rsquo;s how one person can check every call.</dd>
+    <dt>What if it doesn&rsquo;t work out?</dt>
+    <dd>Walk away any time &mdash; it&rsquo;s month-to-month, and I refund the unused days of your month. Your number, your call history, and the setup go with you. (The full $4,500 guarantee needs the full thirty days &mdash; a fair shot at five jobs.) A service you can&rsquo;t leave is a service you can&rsquo;t trust.</dd>
   </dl>
 </section>
 
-<footer>
-  <p>Sam Ismail &middot; Ismail Systems &middot; Evanston, Illinois<!-- G1: after filing, replace preceding with: Sameer Ismail &middot; Ismail Systems LLC &middot; Evanston, IL &middot; Illinois LLC #XXXXXXX --></p>
-  <p><a class="tel" href="tel:+18479062560">(847)&nbsp;906-2560</a> &mdash; this number rings me directly.<!-- G2: at M2 cutover replace preceding clause with: &mdash; my own agent answers it. Books a call with me or takes a message and texts me. I eat my own cooking. --></p>
-  <p><a href="mailto:sam@ismailsystems.com">sam@ismailsystems.com</a> &middot; <a href="/privacy.html">Privacy</a></p>
-</footer>
+<section id="area" aria-labelledby="area-h">
+  <h2 id="area-h">My home turf</h2>
+  <figure>
+    <svg viewBox="0 0 340 270" role="img" aria-label="Hand-drawn map of the North Shore of Chicago: Lake Michigan on the right, with dots marking Winnetka, Glenview, Wilmette, Skokie, Evanston, Morton Grove, Niles, and Park Ridge inside a dashed service ring">
+      <rect width="340" height="270" fill="#fff"/>
+      <path d="M238,0 C233,55 246,110 262,160 C275,200 292,238 300,270 L340,270 L340,0 Z" fill="#dce6f0" stroke="#1e3a5f" stroke-width="1.5"/>
+      <text x="303" y="66" fill="#1e3a5f" font-size="11" font-style="italic" letter-spacing="2" transform="rotate(73 303 66)">LAKE MICHIGAN</text>
+      <circle cx="162" cy="138" r="122" fill="none" stroke="#1e3a5f" stroke-width="1.5" stroke-dasharray="7 6"/>
+      <circle cx="212" cy="42" r="4.5" fill="#a63a2b"/><text x="204" y="38" text-anchor="end" font-size="12.5" fill="#1a1a1a">Winnetka</text>
+      <circle cx="120" cy="72" r="4.5" fill="#a63a2b"/><text x="112" y="68" text-anchor="end" font-size="12.5" fill="#1a1a1a">Glenview</text>
+      <circle cx="218" cy="92" r="4.5" fill="#a63a2b"/><text x="210" y="88" text-anchor="end" font-size="12.5" fill="#1a1a1a">Wilmette</text>
+      <circle cx="172" cy="140" r="4.5" fill="#a63a2b"/><text x="164" y="136" text-anchor="end" font-size="12.5" fill="#1a1a1a">Skokie</text>
+      <circle cx="232" cy="150" r="4.5" fill="#a63a2b"/><text x="226" y="167" text-anchor="end" font-size="12.5" fill="#1a1a1a">Evanston</text>
+      <circle cx="112" cy="148" r="4.5" fill="#a63a2b"/><text x="104" y="144" text-anchor="end" font-size="12.5" fill="#1a1a1a">Morton Grove</text>
+      <circle cx="104" cy="192" r="4.5" fill="#a63a2b"/><text x="96" y="188" text-anchor="end" font-size="12.5" fill="#1a1a1a">Niles</text>
+      <circle cx="82" cy="226" r="4.5" fill="#a63a2b"/><text x="74" y="222" text-anchor="end" font-size="12.5" fill="#1a1a1a">Park Ridge</text>
+      <text x="238" y="258" font-size="11" font-style="italic" fill="#1a1a1a">Chicago &#8595;</text>
+    </svg>
+    <figcaption>Outside the circle? <a href="tel:+18479062560">Call anyway</a>. I can help.</figcaption>
+  </figure>
+</section>
+
+<section id="call" aria-labelledby="call-h">
+  <h2 id="call-h">Call me</h2>
+  <p class="bignum"><a class="tel" href="tel:+18479062560">(847)&nbsp;906-2560<small class="tap">TAP TO CALL</small></a></p>
+  <p>My direct line. You get me, not a call center. If I miss you, don&rsquo;t bother with voicemail. I see the missed call and ring you back the same day.<!-- G2: when my own agent answers this line, swap the preceding paragraph for: My direct line. Call it right now and Third Shift picks up, the same system that would answer your line. Test it. Ask it if it&rsquo;s a robot. Try to shake it. I eat my own cooking. --></p>
+  <p>A text to this number reaches me too.</p>
+  <p>Five jobs in thirty days or the full $4,500 back.</p>
+  <p>One shop at a time. Right now the slot is open.<!-- SLOT: when a client is signed, swap the preceding sentence for: One shop at a time. The slot is taken right now. Call or text anyway and you&rsquo;re first in line when it opens. --></p>
+  <p><small>Ismail Systems LLC &middot; <a href="privacy.html">Privacy &amp; text-message terms</a></small></p>
+</section>
 
 </body>
 </html>

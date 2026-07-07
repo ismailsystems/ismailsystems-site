@@ -102,7 +102,7 @@ certificate.
 ## 4. Verification pass (10 min)
 - `https://ismailsystems.com/` and `/privacy.html` load over HTTPS; `www` and the
   `*.github.io` URL both end up at the apex.
-- Toggle OS dark mode; both color schemes render correctly.
+- Toggle OS dark mode; the pages keep their light scheme (deliberate — `color-scheme: light`, no dark variant per design law 4).
 - Tap the `tel:` links on a phone; (847) 906-2560 connects.
 - Lighthouse (Chrome DevTools, **mobile**): ≥95 in all categories, per design law 3.
 - Text the URL to yourself; the link preview shows title + description (the image
