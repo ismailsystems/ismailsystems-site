@@ -51,7 +51,9 @@ remove the comment in the same commit, and name the gate in the commit message
   Enforce HTTPS once the cert issues.
 - **DNS + email:** Namecheap. Canonical domain: Google Workspace MX/SPF/DKIM per provider
   wizard; DMARC `p=quarantine` ramping to `p=reject`. Variants: registrar catch-all
-  *receive-only* forwarding to sam@; `v=spf1 -all` + DMARC `p=reject` (they never send).
+  *receive-only* forwarding to sam@; `v=spf1 include:spf.efwd.registrar-servers.com -all`
+  + DMARC `p=reject` (the include is required for Namecheap forwarding to function —
+  verified against their KB; variants still never send).
 - **Variant redirects:** three stub repos (one `index.html` each: instant `meta refresh` to
   `https://ismailsystems.com/` + canonical link + plain anchor fallback), each with the
   variant as its Pages custom domain — this closes the HTTPS-redirect gap registrar
