@@ -45,20 +45,20 @@ remove the comment in the same commit, and name the gate in the commit message
 | `G3` + `DEMO_NUMBER` | demo line live (owner provides number) | unhide `#hear`, fill number twice |
 | `G-SAMEAS` | owner provides final LinkedIn/GBP URLs | add the `sameAs` array (marker now in index.html head) |
 
-## Stack (settled; DEPLOY.md must match this)
-- **Hosting:** GitHub Pages from this repo, `main` branch. Custom domain: apex
-  `ismailsystems.com` (4 GH Pages A records at the DNS host) + `www` CNAME → `<owner>.github.io`;
-  Enforce HTTPS once the cert issues.
-- **DNS + email:** Namecheap. Canonical domain: Google Workspace MX/SPF/DKIM per provider
-  wizard; DMARC `p=quarantine` ramping to `p=reject`. Variants: registrar catch-all
-  *receive-only* forwarding to sam@; `v=spf1 include:spf.efwd.registrar-servers.com -all`
-  + DMARC `p=reject` (the include is required for Namecheap forwarding to function —
-  verified against their KB; variants still never send).
-- **Variant redirects:** three stub repos (one `index.html` each: instant `meta refresh` to
-  `https://ismailsystems.com/` + canonical link + plain anchor fallback), each with the
-  variant as its Pages custom domain — this closes the HTTPS-redirect gap registrar
-  forwarding leaves. (If the owner has chosen registrar-forwarding instead, he will say so;
-  default is stubs.)
+## Stack (as deployed — verified against live DNS and serving 2026-07-07; DEPLOY.md must match)
+- **Hosting:** Cloudflare Pages, connected to this GitHub repo; pushes to `main`
+  auto-deploy. Apex + `www` are Cloudflare-proxied (`www` 301 → apex; `http` 301 →
+  `https`; Cloudflare-managed certificate). `404.html` in the repo root serves real
+  404s (without it, Pages falls back to index.html with a 200). The `CNAME` file is a
+  leftover from an earlier GitHub Pages plan that was never enabled — harmless.
+- **DNS:** Cloudflare nameservers (the zone lives in the owner's Cloudflare account).
+- **Email:** Zoho Mail on the canonical domain — MX `mx/mx2/mx3.zoho.com`; SPF
+  `v=spf1 include:zohomail.com ~all`; DKIM published at `zoho._domainkey`. DMARC is
+  currently `p=none` (rua → sam@); ramp to `p=quarantine` then `p=reject` once
+  reports run clean.
+- **Variant domains:** all three are registered, on the same Cloudflare account, and
+  301-redirect to `https://ismailsystems.com/` with valid HTTPS (verified live).
+  Their inbound-mail forwarding state is unverified — check before relying on it.
 
 ## Pre-commit checks (run before any commit touching HTML)
 ```
@@ -70,10 +70,10 @@ grep -ri "esmailsystems\|ismaelsystems\|esmaelsystems" . --include='*.html' && e
 ```
 After deploy: Lighthouse mobile ≥95; text the URL to yourself and check the link preview.
 
-## Known-stale items (first session resolves)
-- `DEPLOY.md` describes a prior hosting stack (Cloudflare). Regenerate it to match the
-  **Stack** section above, including the three stub repos' contents and DNS record tables.
-- Photo / OG / deploy status: derive from markers and `git log`, then report.
+## Known-stale items
+- (none as of 2026-07-07 — the Stack section above records *observed* reality, verified
+  with dig/curl. If infra docs and observation ever disagree again, re-verify live and
+  update the docs; never document a plan as if deployed.)
 
 ## Session prompts (paste into Claude Code at repo root)
 **Kickoff / any session:**
