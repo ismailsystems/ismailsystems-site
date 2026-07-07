@@ -66,7 +66,7 @@ python3 - <<'EOF'   # tag balance + JSON-LD validity + weight
 # (reuse the validation approach from repo history; assert total bytes <= 150_000)
 EOF
 grep -riE '\bwe\b' index.html privacy.html && echo "FAIL: plural voice" 
-grep -ri "esmailsystems\|ismaelsystems\|esmaelsystems" . --include='*.html' && echo "FAIL: variant leaked"
+grep -riE "(esmail|ismael|esmael)systems" . --include='*.html' --include='*.md' --exclude='*.local.md' && echo "FAIL: variant leaked"
 ```
 After deploy: Lighthouse mobile ≥95; text the URL to yourself and check the link preview.
 
