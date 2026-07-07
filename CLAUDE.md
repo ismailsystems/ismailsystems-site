@@ -17,7 +17,8 @@ ask; the constraint is the product.
 4. System font stack; palette: ink/paper plus navy `#1e3a5f` and brick red `#a63a2b`
    (owner decision 2026-07, replacing the single amber accent); 65ch measure; light
    scheme only (`color-scheme: light`). Do not reintroduce a dark scheme.
-5. Semantic HTML; visible focus states; `tel:`/`mailto:` are the only CTAs.
+5. Semantic HTML; visible focus states; `tel:`/`mailto:` plus a single `sms:` link in
+   the closer are the only CTAs (sms permitted by owner decision 2026-07).
 6. First person singular throughout. Never "we".
 7. **Truth-audit rule:** every sentence must be true on the day it ships. Copy versions with
    external reality (see swap registry) — never aspirationally.
@@ -28,7 +29,7 @@ ask; the constraint is the product.
 Current state is derived by grepping `index.html` for gate markers — not from this file,
 not from DEPLOY.md, not from chat. A marker present = gate still open.
 ```
-grep -n "G-PHOTO\|G-OG\|G1:\|G2:\|G3:\|DEMO_NUMBER" index.html
+grep -n "G2:\|G3:\|DEMO_NUMBER\|SLOT:\|G-SAMEAS" index.html
 ```
 Markers are **resolved, never deleted-in-passing**: perform the swap the comment describes,
 remove the comment in the same commit, and name the gate in the commit message
@@ -42,7 +43,7 @@ remove the comment in the same commit, and name the gate in the commit message
 | `G1` | ~~LLC filed~~ **resolved 2026-07** | LLC filed; owner dropped the visible footer legal line entirely — the LLC name now stands in the JSON-LD and privacy.html (no file number displayed) |
 | `G2` | agent answers (847) 906-2560 | swap "rings me directly" clause per comment |
 | `G3` + `DEMO_NUMBER` | demo line live (owner provides number) | unhide `#hear`, fill number twice |
-| JSON-LD `sameAs` | owner provides final LinkedIn/GBP URLs | add the array |
+| `G-SAMEAS` | owner provides final LinkedIn/GBP URLs | add the `sameAs` array (marker now in index.html head) |
 
 ## Stack (settled; DEPLOY.md must match this)
 - **Hosting:** GitHub Pages from this repo, `main` branch. Custom domain: apex
