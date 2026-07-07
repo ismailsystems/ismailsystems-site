@@ -67,11 +67,12 @@ a.hotline{display:block;border:2px solid var(--red);padding:.3rem .7rem;text-ali
   @keyframes ringpulse{0%{box-shadow:0 0 0 0 rgba(166,58,43,.3)}70%{box-shadow:0 0 0 10px rgba(166,58,43,0)}100%{box-shadow:0 0 0 0 rgba(166,58,43,0)}}
   #call .bignum{animation:ringpulse 2.6s ease-out infinite}
 }
-.slip{max-width:340px;margin:1.5rem auto 1.25rem;background:#fdf2ef;border:1px solid var(--red);box-shadow:3px 4px 0 rgba(26,26,26,.12);padding:1rem 1.1rem .8rem;font-size:.9rem}
+.slip{max-width:340px;margin:1.9rem auto 1.25rem;background:#fbe9e7;border:1px solid var(--red);border-top:0;position:relative;box-shadow:3px 4px 0 rgba(26,26,26,.12);padding:1rem 1.1rem .8rem;font-size:.9rem}
+.slip::before{content:"";position:absolute;left:-1px;right:-1px;top:-5px;height:6px;background:radial-gradient(circle at 4.5px 6px,#fbe9e7 3.2px,transparent 3.8px) repeat-x;background-size:9px 6px}
 #what figcaption{text-align:center}
 u{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:3px}
 .slip h3{margin:0 0 .5rem;font-size:.8rem;letter-spacing:.16em;color:var(--red);text-align:center;border-bottom:1px dashed var(--red);padding-bottom:.45rem}
-.slip .row{display:flex;gap:.6rem;margin:.5rem 0 0;border-bottom:1px dotted #c9a29a;padding-bottom:.25rem}
+.slip .row{display:flex;gap:.6rem;margin:.5rem 0 0;border-bottom:1px dotted #d9a8a0;padding-bottom:.25rem}
 .slip .row b{flex:none;font-size:.68rem;letter-spacing:.06em;opacity:.75;font-weight:700;padding-top:.2rem}
 .slip .row span{font-style:italic}
 #area svg{width:100%;height:auto;display:block}
@@ -103,6 +104,7 @@ figcaption{font-size:.85rem;opacity:.75;margin-top:.5rem}
 dl{margin:0}
 dt{font-weight:650;margin-top:1.1rem}
 dd{margin:0.25rem 0 0}
+header.masthead{display:flow-root}
 header.masthead p{margin:0}
 .faceme{float:right;width:176px;margin:.2rem 0 .6rem 1rem}
 .faceme img{width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;display:block}
@@ -136,6 +138,8 @@ a{-webkit-tap-highlight-color:rgba(166,58,43,.15)}
   .ts{background:none;color:var(--navy);border:1px solid var(--navy);border-left:3px solid var(--red)}
   .stripe,.tap{display:none}
   .report,.slip{break-inside:avoid;box-shadow:none}
+  .slip{border-top:1px solid var(--red)}
+  .slip::before{display:none}
   #call .bignum{animation:none}
 }
 </style>
