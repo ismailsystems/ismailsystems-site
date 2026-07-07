@@ -38,7 +38,7 @@ remove the comment in the same commit, and name the gate in the commit message
 | Marker | Trigger (owner will state it) | Action |
 |---|---|---|
 | `G-PHOTO` | ~~daylight photo exists~~ **resolved 2026-07** | shipped as `/assets/sam.jpg` (17KB; webp spec waived — no encoder on build machine) |
-| `G-OG` | photo exists | build `/assets/og.jpg` 1200×630, uncomment the two meta tags |
+| `G-OG` | ~~photo exists~~ **resolved 2026-07** | og.jpg shipped (photo left, wordmark + one-liner + phone right); meta tags live |
 | `G1` | ~~LLC filed~~ **resolved 2026-07** | LLC filed; owner dropped the visible footer legal line entirely — the LLC name now stands in the JSON-LD and privacy.html (no file number displayed) |
 | `G2` | agent answers (847) 906-2560 | swap "rings me directly" clause per comment |
 | `G3` + `DEMO_NUMBER` | demo line live (owner provides number) | unhide `#hear`, fill number twice |

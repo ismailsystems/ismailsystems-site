@@ -8,10 +8,8 @@
 <meta property="og:title" content="Ismail Systems — all of your after-hours calls answered">
 <meta property="og:description" content="Third Shift answers as your company, books the job, and pages your tech. I check its work every night.">
 <meta property="og:url" content="https://ismailsystems.com/">
-<!-- G-OG: uncomment when /assets/og.jpg exists (1200x630 — photo left, wordmark + one-liner right; spec in DEPLOY.md)
 <meta property="og:image" content="https://ismailsystems.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
--->
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService",
@@ -52,9 +50,11 @@ strong{font-weight:650}
 .stripe{height:9px;background:repeating-linear-gradient(-45deg,var(--navy) 0 16px,var(--red) 16px 23px)}
 .seam{margin:.1rem 0 1.75rem}
 .brandrow{display:flex;align-items:center;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;padding:.1rem 0 .65rem}
-.brandrow .co{display:flex;align-items:center;gap:.7rem;line-height:1.15}
-.brandrow .co b{font-size:1.4rem;line-height:1;letter-spacing:.03em;color:var(--navy)}
-.brandrow svg{flex:none;display:block}
+.brandrow .co{line-height:1}
+.wm{display:inline-block;position:relative;padding-bottom:.3rem;border-bottom:2px solid var(--ink);white-space:nowrap}
+.wm::after{content:"";position:absolute;right:0;bottom:-2px;width:15px;height:2px;background:var(--red)}
+.wm b{font-weight:900;font-size:1.5rem;letter-spacing:.02em;color:var(--ink)}
+.wm .sys{font-weight:600;font-size:.78rem;letter-spacing:.34em;margin-left:.55rem;color:var(--ink)}
 a.hotline{display:block;border:2px solid var(--red);padding:.3rem .7rem;text-align:center;line-height:1.25;margin-left:auto;color:var(--red);font-weight:700;text-decoration:none}
 .hotline small{display:block;font-size:.66rem;font-weight:700;letter-spacing:.14em}
 .hotline .tel{font-size:1rem}
@@ -120,9 +120,10 @@ header.masthead p{margin:0}
   .report header{font-size:.72rem}
   #call .bignum{font-size:1.55rem;padding:.45rem .9rem}
   .brandrow{padding:.1rem 0 .5rem;flex-wrap:nowrap;gap:.4rem}
-  .brandrow .co{gap:.4rem}
-  .brandrow .co b{font-size:.85rem;letter-spacing:.01em}
-  .brandrow svg{width:22px;height:22px}
+  .wm b{font-size:1rem}
+  .wm .sys{font-size:.56rem;letter-spacing:.26em;margin-left:.4rem}
+  .wm{padding-bottom:.22rem}
+  .wm::after{width:10px}
   a.hotline{padding:.15rem .4rem}
   .hotline .tel{font-size:.78rem}
   .hotline small{font-size:.5rem;letter-spacing:.1em}
@@ -148,7 +149,7 @@ a{-webkit-tap-highlight-color:rgba(166,58,43,.15)}
 
 <header class="masthead">
   <div class="brandrow">
-    <p class="co"><svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="4" fill="#1e3a5f"/><text x="17" y="23" text-anchor="middle" font-family="-apple-system,'Segoe UI',Arial,sans-serif" font-weight="800" font-size="15" fill="#fff">IS</text></svg><b>ISMAIL&nbsp;SYSTEMS</b></p>
+    <p class="co"><span class="wm"><b>ISMAIL</b><span class="sys">SYSTEMS</span></span></p>
     <a class="hotline" href="tel:+18479062560"><small>DIRECT&nbsp;LINE</small><span class="tel">(847)&nbsp;906-2560</span></a>
   </div>
   <div class="stripe seam"></div>

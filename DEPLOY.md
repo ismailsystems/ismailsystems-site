@@ -108,7 +108,7 @@ certificate.
 - Text the URL to yourself; the link preview shows title + description (the image
   arrives when G-OG closes).
 
-## Appendix — `/assets/og.jpg` spec (referenced by the G-OG marker in index.html)
+## Appendix — `/assets/og.jpg` spec (gate G-OG resolved 2026-07; kept for future rebuilds)
 1200×630 JPEG: photo left, "Ismail Systems" wordmark + one-liner right. Keep it lean
 (target ≤150 KB; it's fetched only by link-preview scrapers, never by the page itself,
 so it doesn't count against page weight). The swap action itself lives at the G-OG
