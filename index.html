@@ -47,8 +47,7 @@ a:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
 strong{font-weight:650}
 .tel{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.95em;white-space:nowrap}
 .when{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85em;font-weight:700;color:var(--red);margin-right:.35rem;white-space:nowrap}
-.stripe{height:9px;background:repeating-linear-gradient(-45deg,var(--navy) 0 16px,var(--red) 16px 23px)}
-.seam{margin:.1rem 0 1.75rem}
+html{border-top:9px solid var(--navy);border-image:repeating-linear-gradient(-45deg,var(--navy) 0 16px,var(--red) 16px 23px) 9}
 .brandrow{display:flex;align-items:center;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;padding:.1rem 0 .65rem}
 .brandrow .co{line-height:1}
 img.wm{width:240px;height:auto;display:block}
@@ -131,7 +130,8 @@ a{-webkit-tap-highlight-color:rgba(166,58,43,.15)}
 }
 @media print{
   .ts{background:none;color:var(--navy);border:1px solid var(--navy);border-left:3px solid var(--red)}
-  .stripe,.tap{display:none}
+  .tap{display:none}
+  html{border-top:0}
   .report,.slip{break-inside:avoid;box-shadow:none}
   .slip{border-top:1px solid var(--red)}
   .slip::before{display:none}
@@ -146,7 +146,6 @@ a{-webkit-tap-highlight-color:rgba(166,58,43,.15)}
     <p class="co"><img class="wm" src="assets/wordmark.png" width="754" height="93" alt="ISMAIL SYSTEMS"></p>
     <a class="hotline" href="tel:+18479062560"><small>DIRECT&nbsp;LINE</small><span class="tel">(847)&nbsp;906-2560</span></a>
   </div>
-  <div class="stripe seam"></div>
   <figure class="facewrap">
     <img src="assets/sam-casual.jpg" width="300" height="530" alt="Sam Ismail, coffee in hand">
     <figcaption>Sam Ismail &mdash; I stand behind every call.</figcaption>
