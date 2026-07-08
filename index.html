@@ -128,6 +128,10 @@ header.masthead p{margin:0}
 .lostledger::before{content:"";position:absolute;top:0;bottom:0;left:30px;width:2px;background:var(--red);opacity:.6}
 .ll-head{padding-left:40px;border-bottom:2px solid var(--navy);padding-bottom:.35rem;margin-bottom:.15rem}
 .ll-title{font-size:.68rem;font-weight:700;letter-spacing:.06em;color:var(--navy)}
+.ll-cols{display:flex;align-items:baseline;gap:.4rem;padding:.22rem 0 .28rem 40px;font-size:.55rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);opacity:.5;border-bottom:1px solid #dce6f0}
+.lc-t{flex:none;width:3.33rem;margin-right:.55rem}
+.lc-j{flex:none;width:5.5rem}
+.lc-c{flex:1}
 .ll-stamp{position:absolute;right:9px;top:8px;font-size:.56rem;font-weight:700;letter-spacing:.14em;color:var(--red);border:1px solid var(--red);border-radius:2px;padding:.08em .3em;transform:rotate(8deg);opacity:.85}
 .ll-r{display:flex;align-items:baseline;gap:.4rem;font-size:.74rem;padding:.2rem 0 .2rem 40px;border-bottom:1px solid #dce6f0}
 .ll-t{flex:none;width:4.5em;margin-right:.55rem;color:var(--red)}
@@ -186,15 +190,16 @@ a{-webkit-tap-highlight-color:rgba(166,58,43,.15)}
     <div class="fill">
       <p class="promise"><u>Five new jobs your first month</u>, or your money back, no questions asked.</p>
       <p class="q">Every call you miss goes to somebody. Which shops are taking your business?</p>
-      <div class="lostledger" role="img" aria-label="Sample after-hours call log: five calls missed after close, each one booked by another shop, about $1,345 of work lost in a single night.">
+      <div class="lostledger" role="img" aria-label="Sample after-hours call log: five emergency calls missed after close, each one booked by another shop, about $2,390 of work lost in a single night.">
         <span class="ll-stamp">SAMPLE</span>
         <div class="ll-head"><span class="ll-title">MISSED CALLS &mdash; AFTER HOURS</span></div>
-        <div class="ll-r"><span class="ll-t">9:12PM</span><span class="ll-j">no heat</span><span class="ll-go">&rarr; Prairie State Htg</span><span class="ll-dot"></span><span class="ll-amt">$380</span></div>
-        <div class="ll-r"><span class="ll-t">10:47PM</span><span class="ll-j">dead outlet</span><span class="ll-go">&rarr; Lakeside Electric</span><span class="ll-dot"></span><span class="ll-amt">$150</span></div>
-        <div class="ll-r"><span class="ll-t">12:30AM</span><span class="ll-j">clogged main</span><span class="ll-go">&rarr; North Ave Plumbing</span><span class="ll-dot"></span><span class="ll-amt">$95</span></div>
-        <div class="ll-r"><span class="ll-t">2:05AM</span><span class="ll-j">burst pipe</span><span class="ll-go">&rarr; A&amp;J Mechanical</span><span class="ll-dot"></span><span class="ll-amt">$520</span></div>
-        <div class="ll-r"><span class="ll-t">6:18AM</span><span class="ll-j">furnace out</span><span class="ll-go">&rarr; Northside Rooter</span><span class="ll-dot"></span><span class="ll-amt">$200</span></div>
-        <div class="ll-tot"><span class="ll-tl">TOTAL LOST &mdash; ONE NIGHT</span><span class="ll-circ">$1,345</span></div>
+        <div class="ll-cols"><span class="lc-t">Time</span><span class="lc-j">Job</span><span class="lc-c">Competitor that got the job</span></div>
+        <div class="ll-r"><span class="ll-t">9:12PM</span><span class="ll-j">no heat</span><span class="ll-go">&rarr; Prairie State Htg</span><span class="ll-dot"></span><span class="ll-amt">$420</span></div>
+        <div class="ll-r"><span class="ll-t">10:47PM</span><span class="ll-j">burning smell</span><span class="ll-go">&rarr; Lakeside Electric</span><span class="ll-dot"></span><span class="ll-amt">$360</span></div>
+        <div class="ll-r"><span class="ll-t">12:30AM</span><span class="ll-j">burst pipe</span><span class="ll-go">&rarr; North Ave Plumbing</span><span class="ll-dot"></span><span class="ll-amt">$680</span></div>
+        <div class="ll-r"><span class="ll-t">2:05AM</span><span class="ll-j">no A/C</span><span class="ll-go">&rarr; A&amp;J Mechanical</span><span class="ll-dot"></span><span class="ll-amt">$390</span></div>
+        <div class="ll-r"><span class="ll-t">6:18AM</span><span class="ll-j">sewer backup</span><span class="ll-go">&rarr; Northside Rooter</span><span class="ll-dot"></span><span class="ll-amt">$540</span></div>
+        <div class="ll-tot"><span class="ll-tl">TOTAL LOST &mdash; ONE NIGHT</span><span class="ll-circ">$2,390</span></div>
         <div class="ll-foot">Illustrative &mdash; one night, not your numbers.</div>
       </div>
     </div>
