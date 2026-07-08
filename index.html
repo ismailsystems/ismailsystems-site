@@ -114,14 +114,38 @@ header.masthead p{margin:0}
 .faceme{float:right;width:176px;margin:.2rem 0 .6rem 1rem}
 .faceme img{width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;display:block}
 .faceme figcaption{font-size:.7rem;line-height:1.35;text-align:center;margin-top:.35rem;opacity:.8}
-.facewrap{float:right;width:148px;margin:0 0 .75rem 1rem}
-.facewrap img{width:148px;height:auto;border:1px solid var(--rule);border-radius:6px;display:block}
+.facewrap{flex:none;width:150px;margin:0}
+.facewrap img{width:150px;height:auto;border:1px solid var(--rule);border-radius:6px;display:block}
 .facewrap figcaption{font-size:.7rem;line-height:1.35;text-align:center;margin-top:.4rem;opacity:.8}
+.band{display:flex;gap:1.3rem;align-items:flex-start;margin-top:1.4rem}
+.fill{flex:1;min-width:0}
+.promise{font-weight:700;font-size:1.08rem;line-height:1.34;margin:0 0 .55rem}
+.q{font-size:1rem;line-height:1.4;margin:0}
+.cue{margin:1.3rem 0 0;font-size:1.05rem;color:var(--red);font-weight:700}
+.cue .cuearw{font-size:1.2rem}
+.lostledger{position:relative;max-width:460px;margin-top:1.3rem;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#fff;border:1px solid var(--rule);box-shadow:3px 4px 0 rgba(26,26,26,.10);padding:.55rem .7rem .6rem}
+.lostledger::before{content:"";position:absolute;top:0;bottom:0;left:30px;width:2px;background:var(--red);opacity:.6}
+.ll-head{padding-left:40px;border-bottom:2px solid var(--navy);padding-bottom:.35rem;margin-bottom:.15rem}
+.ll-title{font-size:.68rem;font-weight:700;letter-spacing:.06em;color:var(--navy)}
+.ll-stamp{position:absolute;right:9px;top:8px;font-size:.56rem;font-weight:700;letter-spacing:.14em;color:var(--red);border:1px solid var(--red);border-radius:2px;padding:.08em .3em;transform:rotate(-8deg);opacity:.85}
+.ll-r{display:flex;align-items:baseline;gap:.4rem;font-size:.74rem;padding:.2rem 0 .2rem 40px;border-bottom:1px solid #dce6f0}
+.ll-t{flex:none;width:3.3em;color:var(--red)}
+.ll-j{flex:none;color:var(--ink)}
+.ll-go{flex:none;color:var(--red);font-style:italic;white-space:nowrap}
+.ll-dot{flex:1;border-bottom:1px dotted #c9b8b3;transform:translateY(-.2em);min-width:8px}
+.ll-amt{flex:none;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.ll-tot{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0 .1rem 40px;border-top:2px solid var(--navy);margin-top:.15rem}
+.ll-tl{font-size:.7rem;font-weight:700;letter-spacing:.03em;color:var(--navy)}
+.ll-circ{font-size:1rem;font-weight:700;color:var(--red);border:2px solid var(--red);border-radius:50%;padding:.18em .75em;transform:rotate(-2deg);white-space:nowrap}
+.ll-foot{padding-left:40px;font-size:.58rem;color:var(--ink);opacity:.55;font-style:italic;margin-top:.35rem}
+@media(max-width:760px){.lostledger{display:none}}
 @media (max-width:480px){
-  .facewrap{width:96px}.facewrap img{width:96px;height:auto}
+  .facewrap{width:118px}.facewrap img{width:118px;height:auto}
   .facewrap figcaption{font-size:.62rem}
   .faceme{width:128px}
-  h1{font-size:1.45rem}
+  .band{gap:.9rem;margin-top:1.1rem}
+  .promise{font-size:1.02rem}
+  .q{font-size:.96rem}
   .report header{font-size:.72rem}
   #call .bignum{font-size:1.55rem;padding:.45rem .9rem}
   .brandrow{flex-wrap:nowrap;gap:.4rem;margin-bottom:1.6rem}
@@ -155,18 +179,36 @@ a{-webkit-tap-highlight-color:rgba(166,58,43,.15)}
     <p class="co"><img class="wm" src="assets/wordmark.png" width="754" height="93" alt="ISMAIL SYSTEMS"></p>
     <a class="hotline" href="tel:+18479062560"><small>DIRECT&nbsp;LINE</small><span class="tel">(847)&nbsp;906-2560</span></a>
   </div>
-  <figure class="facewrap">
-    <img src="assets/sam-casual.jpg" width="300" height="530" alt="Sam Ismail, coffee in hand">
-    <figcaption>Sam Ismail &mdash; I check every call myself.</figcaption>
-  </figure>
   <h1>All of your after&#8209;hours calls answered.<span class="h1b">Jobs booked, not messages taken.</span></h1>
   <p class="sub">After-hours answering for HVAC, plumbing, and electrical shops on Chicago&rsquo;s North Shore.</p>
+  <div class="band">
+    <div class="fill">
+      <p class="promise">Five new jobs your first month, or <u>your money back</u>, no questions asked.</p>
+      <p class="q">Every call you miss goes to somebody. Which shops are taking your business?</p>
+      <div class="lostledger" role="img" aria-label="Sample after-hours call log: five calls missed after close, each one booked by another shop, about $1,345 of work lost in a single night.">
+        <span class="ll-stamp">SAMPLE</span>
+        <div class="ll-head"><span class="ll-title">MISSED CALLS &mdash; AFTER HOURS</span></div>
+        <div class="ll-r"><span class="ll-t">9:12p</span><span class="ll-j">no heat</span><span class="ll-go">&rarr; Prairie State Htg</span><span class="ll-dot"></span><span class="ll-amt">$380</span></div>
+        <div class="ll-r"><span class="ll-t">10:47p</span><span class="ll-j">dead outlet</span><span class="ll-go">&rarr; Lakeside Electric</span><span class="ll-dot"></span><span class="ll-amt">$150</span></div>
+        <div class="ll-r"><span class="ll-t">12:30a</span><span class="ll-j">clogged main</span><span class="ll-go">&rarr; North Ave Plumbing</span><span class="ll-dot"></span><span class="ll-amt">$95</span></div>
+        <div class="ll-r"><span class="ll-t">2:05a</span><span class="ll-j">burst pipe</span><span class="ll-go">&rarr; A&amp;J Mechanical</span><span class="ll-dot"></span><span class="ll-amt">$520</span></div>
+        <div class="ll-r"><span class="ll-t">6:18a</span><span class="ll-j">furnace out</span><span class="ll-go">&rarr; Northside Rooter</span><span class="ll-dot"></span><span class="ll-amt">$200</span></div>
+        <div class="ll-tot"><span class="ll-tl">TOTAL LOST &mdash; ONE NIGHT</span><span class="ll-circ">$1,345</span></div>
+        <div class="ll-foot">Illustrative &mdash; one night, not your numbers.</div>
+      </div>
+    </div>
+    <figure class="facewrap">
+      <img src="assets/sam-casual.jpg" width="300" height="530" alt="Sam Ismail, coffee in hand">
+      <figcaption>Sam Ismail &mdash; I check every call myself.</figcaption>
+    </figure>
+  </div>
+  <p class="cue"><span class="cuearw">&darr;</span> See what it&rsquo;s costing you</p>
 </header>
 
 <main>
 
 <section id="what" aria-labelledby="what-h">
-  <h2 id="what-h">Stop losing calls</h2>
+  <h2 id="what-h">Hear it yourself</h2>
   <p>Call your own shop some Saturday night. Listen to what your customers hear.</p>
   <p><a href="https://www.invoca.com/blog/how-much-missed-sales-calls-cost-home-services-businesses" target="_blank" rel="noopener">Call-tracking studies</a> across the trades put it at about <u>1 call in 4 going unanswered</u>. After close. During a rush. On the Fourth of July. A homeowner with a dead furnace doesn&rsquo;t leave a voicemail. He calls the next name on Google.</p>
   <p><u>How many calls did your shop miss last month?</u> The number is sitting in your phone log right now. Most owners never count it. And even if you count, the log can&rsquo;t tell you who called, what the job was worth, or where it went.</p>
@@ -185,7 +227,6 @@ a{-webkit-tap-highlight-color:rgba(166,58,43,.15)}
     </div>
     <figcaption>That job is on somebody else&rsquo;s schedule now.</figcaption>
   </figure>
-  <p>Five new booked jobs in your first month, or every dollar back. In writing.</p>
   <p class="midcall">Stop the next one: <a class="tel" href="tel:+18479062560">(847)&nbsp;906-2560</a></p>
 </section>
 
