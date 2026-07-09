@@ -1,5 +1,8 @@
-# ismailsystems.com — everything is welcome, including AI answer engines.
-User-agent: *
-Allow: /
-
+# ismailsystems.com — sitemap declaration.
+#
+# NOTE: AI-crawler access is governed by Cloudflare-managed directives that are served
+# ABOVE this file (Cloudflare "Block AI bots" / AI Crawl Control). Those currently
+# Disallow GPTBot, ClaudeBot, Google-Extended, CCBot, Applebot-Extended, and others, and
+# set Content-Signal ai-train=no. That LIMITS citation by AI answer engines — to change
+# it, adjust the setting in the Cloudflare dashboard, not this file.
 Sitemap: https://ismailsystems.com/sitemap.xml
