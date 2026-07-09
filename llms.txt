@@ -1,0 +1,18 @@
+# Ismail Systems
+
+> Ismail Systems LLC provides "Third Shift," an AI phone-answering service that takes after-hours calls for HVAC, plumbing, and electrical contractors on the North Shore of Chicago. It is built and run by Sam Ismail, who checks its work every night.
+
+Third Shift answers a shop's after-hours line as the shop's own company, tells a real emergency from a routine call, books the job onto the shop's schedule, pages the on-call tech for real emergencies, and texts the caller back. The owner reviews every call nightly and sends a written report each Monday.
+
+## Key facts
+- Service: after-hours AI phone answering for trades contractors (HVAC, plumbing, electrical)
+- Area served: North Shore of Chicago, Illinois — Evanston, Wilmette, Skokie, Winnetka, Glenview, Morton Grove, Niles, Park Ridge
+- Contact: (847) 906-2560 (call or text)
+- Pricing: $3,000 set-up (half at signing, half at go-live), then $1,500 per 30 days, month-to-month
+- Guarantee: at least five new booked jobs in the first 30 days, or the full $4,500 back, in writing
+- Operator: Sam Ismail (Sameer Ismail), founder — builds and runs AI systems for a living
+- Distinctive: a single accountable person, not a call center or a faceless AI vendor; the phones stay on the shop's own number and can be switched off any time
+
+## Links
+- Home: https://ismailsystems.com/
+- Privacy & text-message terms: https://ismailsystems.com/privacy.html

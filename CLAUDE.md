@@ -45,6 +45,12 @@ remove the comment in the same commit, and name the gate in the commit message
 | `G3` + `DEMO_NUMBER` | demo line live (owner provides number) | unhide `#hear`, fill number twice |
 | `G-SAMEAS` | owner provides final LinkedIn/GBP URLs | add the `sameAs` array (marker now in index.html head) |
 
+**Keep-in-sync (not a gate — a standing rule):** the QUOTE figures ($3,000 set-up /
+$1,500 per 30 days / $4,500 guarantee) now live in three places — the visible `#deal`
+table (**source of truth**), the JSON-LD `makesOffer` in the head (carries a `PRICE:`
+comment), and `llms.txt`. If the owner re-quotes, change all three in the same commit,
+or the structured data / AI-facing summary goes false while the page looks fine.
+
 ## Stack (as deployed — verified against live DNS and serving 2026-07-07; DEPLOY.md must match)
 - **Hosting:** Cloudflare Pages, connected to this GitHub repo; pushes to `main`
   auto-deploy. Apex + `www` are Cloudflare-proxied (`www` 301 → apex; `http` 301 →
