@@ -1,8 +1,5 @@
 # ismailsystems.com — sitemap declaration.
 #
-# NOTE: AI-crawler access is governed by Cloudflare-managed directives that are served
-# ABOVE this file (Cloudflare "Block AI bots" / AI Crawl Control). Those currently
-# Disallow GPTBot, ClaudeBot, Google-Extended, CCBot, Applebot-Extended, and others, and
-# set Content-Signal ai-train=no. That LIMITS citation by AI answer engines — to change
-# it, adjust the setting in the Cloudflare dashboard, not this file.
+# Cloudflare Managed robots.txt is intentionally OFF in AI Crawl Control
+# (verified 2026-07-09), so this repo file is the live robots.txt response.
 Sitemap: https://ismailsystems.com/sitemap.xml

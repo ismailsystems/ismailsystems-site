@@ -16,6 +16,11 @@ CLAUDE.md's **Stack** section disagree, CLAUDE.md wins and this file is stale.
   that file it soft-404s: index.html with a 200).
 - The `CNAME` file in the repo is a leftover from a GitHub Pages plan that was never
   enabled. GitHub Pages is OFF for this repo. The file is inert on Cloudflare Pages.
+- **AI crawler policy:** Cloudflare Managed `robots.txt` is intentionally OFF in
+  AI Crawl Control (changed and curl-verified 2026-07-09), so the repo's
+  `robots.txt` is served as-is. Keep it off if AI search / grounding citation is a
+  goal; if this changes, re-check `https://ismailsystems.com/robots.txt` for
+  Cloudflare-prepended `Disallow` rules before touching the repo file.
 
 ## 1. DNS — Cloudflare zone (as observed)
 

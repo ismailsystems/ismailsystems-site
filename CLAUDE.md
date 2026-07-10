@@ -65,6 +65,11 @@ or the structured data / AI-facing summary goes false while the page looks fine.
 - **Variant domains:** all three are registered, on the same Cloudflare account, and
   301-redirect to `https://ismailsystems.com/` with valid HTTPS (verified live).
   Their inbound-mail forwarding state is unverified — check before relying on it.
+- **AI crawler policy:** Cloudflare Managed `robots.txt` is intentionally OFF in
+  AI Crawl Control (changed and curl-verified 2026-07-09), so the repo's
+  `robots.txt` is the live response. Keep it off if AI search / grounding citation is
+  a goal; if the live file ever shows Cloudflare-prepended `Disallow` rules again,
+  fix that in the dashboard before editing repo robots policy.
 
 ## Pre-commit checks (run before any commit touching HTML)
 ```
@@ -77,7 +82,7 @@ grep -riE "(esmail|ismael|esmael)systems" . --include='*.html' --include='*.md' 
 After deploy: Lighthouse mobile ≥95; text the URL to yourself and check the link preview.
 
 ## Known-stale items
-- (none as of 2026-07-07 — the Stack section above records *observed* reality, verified
+- (none as of 2026-07-09 — the Stack section above records *observed* reality, verified
   with dig/curl. If infra docs and observation ever disagree again, re-verify live and
   update the docs; never document a plan as if deployed.)
 
